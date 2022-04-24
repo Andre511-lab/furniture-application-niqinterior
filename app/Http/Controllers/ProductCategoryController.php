@@ -58,6 +58,10 @@ class ProductCategoryController extends Controller
     {
         $data = $request->all();
         $data['category_slug'] = Str::slug($request->name);
+
+        ProductCategory::create($data);
+
+        return redirect()->route('dashboard.category.index');
     }
 
     /**

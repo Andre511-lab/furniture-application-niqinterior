@@ -16,6 +16,7 @@
                 columns : [
                     {data: 'id', name: 'id', width: '5%'},
                     {data: 'name', name: 'name', width: '5%'},
+                    {data: 'categories_id', name: 'categories id', width: '5%'},
                     {data: 'price', name: 'price', width: '5%'},
                     {
                         data: 'action',
@@ -43,6 +44,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
+                                <th>Category</th>
                                 <th>Price</th>
                                 <th>Action</th>
                             </tr>

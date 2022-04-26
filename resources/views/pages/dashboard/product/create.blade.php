@@ -35,6 +35,17 @@
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3 mb-6">
+                            <label for="categories_id" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Category Product</label>
+                            <select name="categories_id" id="categories_id" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                                <option value="">Choose Category</option>
+                                @foreach ($categories as $item)
+                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3 mb-6">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Description</label>
                             <textarea name="description"  class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">{!! old('description') !!}</textarea>
                         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -56,7 +57,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('pages.dashboard.product.create');
+        $categories = ProductCategory::all();
+
+        return view('pages.dashboard.product.create', compact('categories'));
     }
 
     /**
@@ -92,11 +95,12 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id)
     {
-        return view('pages.dashboard.product.edit', [
-            'item' => $product
-        ]);
+        $item = Product::findOrFail($id);
+        $categories = ProductCategory::all();
+
+        return view('pages.dashboard.product.edit', compact('item', 'categories'));
     }
 
     /**

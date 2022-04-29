@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CheckoutRequest;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\ProductCategory;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Exception;
@@ -111,7 +112,6 @@ class FrontendController extends Controller
 
             // Redirect to Snap Payment Page
             return redirect($paymentUrl);
-
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -120,5 +120,20 @@ class FrontendController extends Controller
     public function success(Request $request)
     {
         return view('pages.frontend.success');
+    }
+
+    public function catalog(Request $request)
+    {
+        $categories = ProductCategory::all();
+        if ($request->category) {
+            $products = Product::with(['galleries'])->where('categories_id', $request->category)
+                ->latest()->paginate(10);
+        } else {
+            $products = Product::with(['galleries'])->latest()->paginate(10);
+        }
+
+        // dd($products);
+
+        return view('pages.frontend.catalog', compact('categories', 'products'));
     }
 }

@@ -23,8 +23,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/details/{slug}', [FrontendController::class, 'details'])->name('details');
+Route::get('/catalog', [FrontendController::class, 'catalog'])->name('catalog');
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function (){
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
     Route::post('/cart/{id}', [FrontendController::class, 'cartAdd'])->name('cart-add');
     Route::delete('/cart/{id}', [FrontendController::class, 'cartDelete'])->name('cart-delete');
@@ -32,8 +33,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function (){
     Route::get('/checkout/success', [FrontendController::class, 'success'])->name('checkout-success');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function (){
-    Route::get('/', [DashboardController::class, 'index'])->name('index');//dashboard.index
+Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('index'); //dashboard.index
     Route::resource('my-transaction', MyTransactionController::class)->only([
         'index', 'show',
     ]);

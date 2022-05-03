@@ -20,7 +20,7 @@ class ProductGalleryController extends Controller
     {
         if(request()->ajax())
         {
-            $query = ProductGallery::query();
+            $query = ProductGallery::where('products_id', $product->id);
 
             return DataTables::of($query)
                 ->addColumn('action', function($item){

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\MyTransactionController;
@@ -26,6 +27,8 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/details/{slug}', [FrontendController::class, 'details'])->name('details');
 Route::get('/catalog', [FrontendController::class, 'catalog'])->name('catalog');
 Route::get('/showcase', [FrontendController::class, 'showcase'])->name('showcase');
+Route::get('/custom', [FrontendController::class, 'custom'])->name('custom');
+Route::post('/custom', [FrontendController::class, 'customStore'])->name('custom-store');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
@@ -44,6 +47,9 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
     Route::middleware(['admin',])->group(function () {
         Route::resource('product', ProductController::class);
         Route::resource('showcase', ShowcaseController::class);
+        Route::resource('custom', CustomController::class)->only([
+            'index'
+        ]);;
         Route::resource('category', ProductCategoryController::class);
         Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([
             'index', 'create', 'store', 'destroy'

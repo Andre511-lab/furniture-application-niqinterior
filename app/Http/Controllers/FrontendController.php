@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CheckoutRequest;
 use App\Models\Cart;
+use App\Models\Custom;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Showcase;
@@ -142,5 +143,26 @@ class FrontendController extends Controller
         $showcases = Showcase::all();
 
         return view('pages.frontend.showcase', compact('categories', 'showcases'));
+    }
+
+    public function custom(Request $request)
+    {
+        return view('pages.frontend.custom');
+    }
+
+    public function customStore(Request $request)
+    {
+        $data = $request->all();
+        $file = $request->file('file');
+
+        if ($request->hasFile('file')) {
+            $path = $file->store('public/gallery');
+
+            $data['reference_photo'] = $path;
+
+            Custom::create($data);
+        }
+
+        return redirect()->route('custom')->with('success', "success");
     }
 }

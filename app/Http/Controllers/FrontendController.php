@@ -6,6 +6,7 @@ use App\Http\Requests\CheckoutRequest;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\Showcase;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Exception;
@@ -132,8 +133,14 @@ class FrontendController extends Controller
             $products = Product::with(['galleries'])->latest()->paginate(10);
         }
 
-        // dd($products);
-
         return view('pages.frontend.catalog', compact('categories', 'products'));
+    }
+
+    public function showcase(Request $request)
+    {
+        $categories = ProductCategory::all();
+        $showcases = Showcase::all();
+
+        return view('pages.frontend.showcase', compact('categories', 'showcases'));
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\MyTransactionController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductGalleryController;
+use App\Http\Controllers\ShowcaseController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/details/{slug}', [FrontendController::class, 'details'])->name('details');
 Route::get('/catalog', [FrontendController::class, 'catalog'])->name('catalog');
+Route::get('/showcase', [FrontendController::class, 'showcase'])->name('showcase');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
@@ -41,6 +43,7 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
 
     Route::middleware(['admin',])->group(function () {
         Route::resource('product', ProductController::class);
+        Route::resource('showcase', ShowcaseController::class);
         Route::resource('category', ProductCategoryController::class);
         Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([
             'index', 'create', 'store', 'destroy'

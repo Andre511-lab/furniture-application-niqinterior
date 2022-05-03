@@ -23,6 +23,9 @@
                         <x-jet-nav-link href="{{ route('dashboard.category.index') }}" :active="request()->routeIs('dashboard.category.index')">
                             {{ __('Category') }}
                         </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('dashboard.showcase.index') }}" :active="request()->routeIs('dashboard.showcase.index')">
+                            {{ __('Showcase') }}
+                        </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('dashboard.transaction.index') }}" :active="request()->routeIs('dashboard.transaction.index')">
                             {{ __('Transaction') }}
                         </x-jet-nav-link>

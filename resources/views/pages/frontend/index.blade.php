@@ -77,7 +77,7 @@
                 <h5 class="text-lg font-semibold">{{ $categories[0]->name }}</h5>
                 <span class="">{{ $categories[0]->product->count() }} items</span>
               </div>
-              <a href="details.html" class="stretched-link">
+              <a href="{{ route('catalog', ['category'=> $categories[0]->id]) }}" class="stretched-link">
                 <!-- fake children -->
               </a>
             </div>
@@ -97,7 +97,7 @@
                 <h5 class="text-lg font-semibold">{{ $categories[1]->name }}</h5>
                 <span class="">{{ $categories[1]->product->count() }} items</span>
               </div>
-              <a href="details.html" class="stretched-link">
+              <a href="{{ route('catalog', ['category'=> $categories[1]->id]) }}" class="stretched-link">
                 <!-- fake children -->
               </a>
             </div>
@@ -117,7 +117,7 @@
                 <h5 class="text-lg font-semibold">{{ $categories[2]->name }}</h5>
                 <span class="">{{ $categories[2]->product->count() }} items</span>
               </div>
-              <a href="details.html" class="stretched-link">
+              <a href="{{ route('catalog', ['category'=> $categories[2]->id]) }}" class="stretched-link">
                 <!-- fake children -->
               </a>
             </div>
@@ -135,7 +135,7 @@
                 <h5 class="text-lg font-semibold">{{ $categories[3]->name }}</h5>
                 <span class="">{{ $categories[3]->product->count() }} items</span>
               </div>
-              <a href="details.html" class="stretched-link">
+              <a href="{{ route('catalog', ['category'=> $categories[3]->id]) }}" class="stretched-link">
                 <!-- fake children -->
               </a>
             </div>

@@ -21,8 +21,9 @@ class FrontendController extends Controller
     public function index(Request $request)
     {
         $products = Product::with(['galleries'])->latest()->get();
+        $categories = ProductCategory::with(['product'])->get();
 
-        return view('pages.frontend.index', compact('products'));
+        return view('pages.frontend.index', compact('products', 'categories'));
     }
 
     public function details(Request $request, $slug)
@@ -127,14 +128,17 @@ class FrontendController extends Controller
     public function catalog(Request $request)
     {
         $categories = ProductCategory::all();
+        $title = "All Catalog";
         if ($request->category) {
+            $category = ProductCategory::find($request->category);
+            $title = $category->name;
             $products = Product::with(['galleries'])->where('categories_id', $request->category)
                 ->latest()->paginate(10);
         } else {
             $products = Product::with(['galleries'])->latest()->paginate(10);
         }
 
-        return view('pages.frontend.catalog', compact('categories', 'products'));
+        return view('pages.frontend.catalog', compact('categories', 'products', 'title'));
     }
 
     public function showcase(Request $request)

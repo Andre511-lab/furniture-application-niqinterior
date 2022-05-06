@@ -9,7 +9,7 @@
           <a href="{{ route('index') }}">Home</a>
         </li>
         <li>
-          <a href="#">Office Room</a>
+          <a href="#">{{ $product->categories->name }}</a>
         </li>
         <li>
           <a href="#" aria-label="current-page">Details</a>

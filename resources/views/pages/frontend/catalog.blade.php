@@ -29,7 +29,7 @@
       </ul>
     </div>
     <div class="w-full px-4 mb-4 md:w-8/12 md:mb-0">
-      <h3 class="text-2xl font-semibold mb-4">Catalog</h3>
+      <h3 class="text-2xl font-semibold mb-4">{{ $title }}</h3>
       <div class="flex -mx-4 flex-wrap relative">
         <!-- START: JUST ARRIVED ROW 1 -->
         @foreach ($products as $product)

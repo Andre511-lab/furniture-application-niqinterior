@@ -27,8 +27,6 @@ Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/details/{slug}', [FrontendController::class, 'details'])->name('details');
 Route::get('/catalog', [FrontendController::class, 'catalog'])->name('catalog');
 Route::get('/showcase', [FrontendController::class, 'showcase'])->name('showcase');
-Route::get('/custom', [FrontendController::class, 'custom'])->name('custom');
-Route::post('/custom', [FrontendController::class, 'customStore'])->name('custom-store');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
@@ -36,6 +34,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::delete('/cart/{id}', [FrontendController::class, 'cartDelete'])->name('cart-delete');
     Route::post('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
     Route::get('/checkout/success', [FrontendController::class, 'success'])->name('checkout-success');
+    Route::get('/custom', [FrontendController::class, 'custom'])->name('custom');
+    Route::post('/custom', [FrontendController::class, 'customStore'])->name('custom-store');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('dashboard')->group(function () {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ShowcaseRequest;
 use App\Models\ProductCategory;
 use App\Models\Showcase;
+use App\Models\ShowcaseCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
@@ -40,7 +41,7 @@ class ShowcaseController extends Controller
                     return '<img style="max-width: 150px" src="' . Storage::url($item->url) . '"/>';
                 })
                 ->editColumn('categories_id', function ($item) {
-                    return $item->categories->name;
+                    return $item->categories->showcase_name;
                 })
                 ->rawColumns(['action', 'url', 'categories_id'])
                 ->make();
@@ -55,7 +56,7 @@ class ShowcaseController extends Controller
      */
     public function create()
     {
-        $categories = ProductCategory::all();
+        $categories = ShowcaseCategory::all();
 
         return view('pages.dashboard.showcase.create', compact('categories'));
     }
@@ -102,7 +103,7 @@ class ShowcaseController extends Controller
     public function edit($id)
     {
         $item = Showcase::findOrFail($id);
-        $categories = ProductCategory::all();
+        $categories = ShowcaseCategory::all();
 
         return view('pages.dashboard.showcase.edit', compact('item', 'categories'));
     }

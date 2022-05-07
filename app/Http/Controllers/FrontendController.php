@@ -8,6 +8,7 @@ use App\Models\Custom;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\Showcase;
+use App\Models\ShowcaseCategory;
 use App\Models\Transaction;
 use App\Models\TransactionItem;
 use Exception;
@@ -143,7 +144,7 @@ class FrontendController extends Controller
 
     public function showcase(Request $request)
     {
-        $categories = ProductCategory::all();
+        $categories = ShowcaseCategory::all();
         $showcases = Showcase::all();
 
         return view('pages.frontend.showcase', compact('categories', 'showcases'));

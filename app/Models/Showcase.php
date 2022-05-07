@@ -15,6 +15,6 @@ class Showcase extends Model
 
     public function categories()
     {
-        return $this->belongsTo(ProductCategory::class, 'categories_id', 'id');
+        return $this->belongsTo(ShowcaseCategory::class, 'categories_id', 'id');
     }
 }

@@ -39,7 +39,7 @@
                             <select name="categories_id" id="categories_id" class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                 <option value="">Choose Category</option>
                                 @foreach ($categories as $item)
-                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                <option value="{{ $item->id }}">{{ $item->showcase_name }}</option>
                                 @endforeach
                             </select>
                         </div>

@@ -24,16 +24,16 @@
   <div class="mt-4 text-center">
     <h6 class="font-semibold text-2xl">Desain Inspirasi</h6>
     <p class="font-light text-lg" style="font-weight:300">Cari ide desain furniture di sini! Kami akan mewujudkannya untuk Anda! <br/>
-      *gambar pada halaman ini hanya sebagai referensi desain yang diambil dari Social Media  
+      *gambar pada halaman ini hanya sebagai referensi desain yang diambil dari Social Media
     </p>
   </div>
 
-  
+
     <div class="flex justify-center my-8 categories">
       <ul class="flex">
         <li class="mx-3 text-lg active" data-filter="*"><a  href="#" class="text">All</a></li>
         @foreach ($categories as $category)
-        <li class="mx-3 text-lg" data-filter=".category{{ $category->id }}"><a href="#" class="text">{{ $category->name }}</a></li>
+        <li class="mx-3 text-lg" data-filter=".category{{ $category->id }}"><a href="#" class="text">{{ $category->showcase_name }}</a></li>
         @endforeach
       </ul>
     </div>

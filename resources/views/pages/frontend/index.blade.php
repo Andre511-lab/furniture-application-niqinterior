@@ -86,7 +86,7 @@
             >
               <div class="card-shadow rounded-xl">
                 <img
-                  src="/frontend/images/content/image-catalog-3.png"
+                  src="/frontend/images/content/catalog-diningroom.png"
                   alt=""
                   class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
                 />
@@ -106,7 +106,7 @@
             >
               <div class="card-shadow rounded-xl">
                 <img
-                  src="/frontend/images/content/image-catalog-4.png"
+                  src="/frontend/images/content/catalog-decoration.png"
                   alt=""
                   class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
                 />
@@ -124,7 +124,7 @@
             <div class="relative col-span-9 row-span-1 md:col-span-4 card">
               <div class="card-shadow rounded-xl">
                 <img
-                  src="/frontend/images/content/image-catalog-2.png"
+                  src="/frontend/images/content/catalog-bedroom.png"
                   alt=""
                   class="w-full h-full object-cover object-center overlay overflow-hidden rounded-xl"
                 />

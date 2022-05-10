@@ -1,4 +1,4 @@
 <img
-  src="{{ url('/frontend/images/content/logo.png')}}"
-  alt="Luxspace | Fulfill your house with beautiful furniture"
+  src="{{ url('/frontend/images/content/logo-niq.png')}}"
+  alt="NIQInterior | Fulfill your house with beautiful furniture"
 />

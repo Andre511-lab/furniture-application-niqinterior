@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Midtrans\Config;
 use Midtrans\Snap;
+use Spatie\Activitylog\Models\Activity;
+use Spatie\Activitylog\ActivityLogger;
 
 class FrontendController extends Controller
 {
@@ -24,6 +26,14 @@ class FrontendController extends Controller
         $products = Product::with(['galleries'])->latest()->get();
         $categories = ProductCategory::with(['product'])->get();
 
+        //event log code
+        $request->subject = 'B';
+        $request->description = 'home';
+
+        activity($request->subject)
+            ->causedBy($request->user)
+            ->log($request->description);
+
         return view('pages.frontend.index', compact('products', 'categories'));
     }
 
@@ -31,6 +41,14 @@ class FrontendController extends Controller
     {
         $product = Product::with(['galleries'])->where('slug', $slug)->firstOrFail();
         $recommendations = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
+
+        //event log
+        $request->subject = 'D';
+        $request->description = 'melihat barang';
+
+        activity($request->subject)
+            ->causedBy($request->user)
+            ->log($request->description);
 
         return view('pages.frontend.details', compact('product', 'recommendations'));
     }
@@ -42,6 +60,14 @@ class FrontendController extends Controller
             "products_id" => $id
         ]);
 
+        //event log
+        $request->subject = 'E';
+        $request->description = 'memasukan barang ke keranjang';
+
+        activity($request->subject)
+            ->causedBy($request->user)
+            ->log($request->description);
+
         return redirect('cart');
     }
 
@@ -51,12 +77,29 @@ class FrontendController extends Controller
 
         $item->delete();
 
+        //event log
+        $request->subject = 'G';
+        $request->description = 'menghapus barang dalam keranjang';
+
+        activity($request->subject)
+            ->causedBy($request->user)
+            ->log($request->description);
+
         return redirect('cart');
     }
 
     public function cart(Request $request)
     {
         $carts = Cart::with(['product.galleries'])->where('users_id', Auth::user()->id)->get();
+
+        //event log
+        $request->subject = 'F';
+        $request->description = 'melihat keranjang';
+
+        activity($request->subject)
+            ->causedBy($request->user)
+            ->log($request->description);
+
         return view('pages.frontend.cart', compact('carts'));
     }
 
@@ -123,6 +166,14 @@ class FrontendController extends Controller
 
     public function success(Request $request)
     {
+        //event log
+        $request->subject = 'H';
+        $request->description = 'checkout';
+
+        activity($request->subject)
+            ->causedBy($request->user)
+            ->log($request->description);
+
         return view('pages.frontend.success');
     }
 
@@ -139,6 +190,14 @@ class FrontendController extends Controller
             $products = Product::with(['galleries'])->latest()->paginate(10);
         }
 
+        //event log
+        $request->subject = 'C';
+        $request->description = 'catalog';
+
+        activity($request->subject)
+            ->causedBy($request->user)
+            ->log($request->description);
+
         return view('pages.frontend.catalog', compact('categories', 'products', 'title'));
     }
 
@@ -146,6 +205,14 @@ class FrontendController extends Controller
     {
         $categories = ShowcaseCategory::all();
         $showcases = Showcase::all();
+
+        //event log
+        $request->subject = 'I';
+        $request->description = 'melihat showcase';
+
+        activity($request->subject)
+            ->causedBy($request->user)
+            ->log($request->description);
 
         return view('pages.frontend.showcase', compact('categories', 'showcases'));
     }
@@ -167,6 +234,14 @@ class FrontendController extends Controller
 
             Custom::create($data);
         }
+
+        //event log
+        $request->subject = 'J';
+        $request->description = 'memesan custom';
+
+        activity($request->subject)
+            ->causedBy($request->user)
+            ->log($request->description);
 
         return redirect()->route('custom')->with('success', "success");
     }

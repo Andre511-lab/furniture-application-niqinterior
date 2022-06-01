@@ -9,7 +9,7 @@
           <a href="{{ route('index') }}">Home</a>
         </li>
         <li>
-          <a href="#" aria-label="current-page">Success Checkout</a>
+          <a href="#" aria-label="current-page">Pending Checkout</a>
         </li>
       </ul>
     </div>
@@ -22,19 +22,18 @@
       <div class="flex flex-col items-center justify-center">
         <div class="w-full md:w-4/12 text-center">
           <img
-            src="/frontend/images/content/illustration-success.png"
+            src="/frontend/images/content/illustration-pending.png"
             alt="congrats illustration"
           />
-          <h2 class="text-3xl font-semibold mb-6">Transaction Success!</h2>
+          <h2 class="text-3xl font-semibold mb-6">Transaction Pending!</h2>
           <p class="text-lg mb-12">
-            Furniture yang anda beli akan kami kirimkan saat ini juga so now
-            please sit tight and be ready for it
+            Segera selesaikan transaksi anda
           </p>
           <a
-            href="{{ route('index') }}"
+            href="{{ route('dashboard.my-transaction.index') }}"
             class="text-gray-900 bg-red-200 focus:outline-none w-full py-3 rounded-full text-lg focus:text-black transition-all duration-200 px-8 cursor-pointer"
           >
-            Back to Shop
+            My Transaction
           </a>
         </div>
       </div>

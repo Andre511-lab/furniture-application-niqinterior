@@ -34,6 +34,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::delete('/cart/{id}', [FrontendController::class, 'cartDelete'])->name('cart-delete');
     Route::post('/checkout', [FrontendController::class, 'checkout'])->name('checkout');
     Route::get('/checkout/success', [FrontendController::class, 'success'])->name('checkout-success');
+    Route::get('/checkout/pending', [FrontendController::class, 'pending'])->name('checkout-pending');
+    Route::get('/checkout/failed', [FrontendController::class, 'failed'])->name('checkout-failed');
     Route::get('/custom', [FrontendController::class, 'custom'])->name('custom');
     Route::post('/custom', [FrontendController::class, 'customStore'])->name('custom-store');
 });

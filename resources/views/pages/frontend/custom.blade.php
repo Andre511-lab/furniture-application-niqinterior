@@ -9,7 +9,7 @@
         <a href="{{ route('index') }}">Home</a>
       </li>
       <li>
-        <a href="#">Showcase</a>
+        <a href="#">Custom</a>
       </li>
     </ul>
   </div>
@@ -23,7 +23,7 @@
 <section class="container mx-auto">
   <div class="my-8 text-center">
     <h6 class="font-semibold text-2xl">Pemesanan Layanan</h6>
-    <p class="font-light text-lg" style="font-weight:300">Custom furniture seperti kitchen set, lemari, wardrobe, tempat tidur, 
+    <p class="font-light text-lg" style="font-weight:300">Custom furniture seperti kitchen set, lemari, wardrobe, tempat tidur,
       sofa, meja makan, meja belajar, meja rias, <br/> kursi, rak buku, rak bawah tangga, hingga backdrop TV, sesuai dengan keinginan
       anda.
     </p>
@@ -113,17 +113,17 @@
         </div>
 
         <div class="flex flex-start mb-6">
-          <h3 class="text-2xl">Saya membutuhkan furnitur untuk</h3>
+          <h3 class="text-2xl">Saya membutuhkan furniture untuk</h3>
         </div>
 
         <div class="flex flex-col mb-4">
           <label for="furniture_for" class="text-sm mb-2"
-            >Kebutuhan Furnitur</label
+            >Kebutuhan Furniture</label
           >
           <select
           class="border-gray-200 border rounded-lg px-4 py-2 bg-white text-sm focus:border-blue-200 focus:outline-none"
           name="furniture_for" id="furniture_for" required>
-            <option  value="">Pilih Kebutuhan Furnitur</option>
+            <option  value="">Pilih Kebutuhan Furniture</option>
             <option  value="Rumah">Rumah</option>
             <option  value="Kantor">Kantor</option>
             <option  value="Apartemen">Apartemen</option>
@@ -133,30 +133,29 @@
         </div>
 
         <div class="flex flex-start mb-6">
-          <h3 class="text-2xl">Furnitur yang saya butuhkan adalah</h3>
+          <h3 class="text-2xl">Furniture yang saya butuhkan adalah</h3>
         </div>
 
         <div class="flex flex-col mb-4">
           <label for="furniture_type" class="text-sm mb-2"
-            >Furnitur</label
+            >Furniture</label
           >
           <select
           class="border-gray-200 border rounded-lg px-4 py-2 bg-white text-sm focus:border-blue-200 focus:outline-none"
           name="furniture_type" id="furniture_type" required>
-            <option  value="">Pilih Furnitur</option>
+            <option  value="">Pilih Furniture</option>
             <option  value="Kitchen Set">Kitchen Set</option>
             <option  value="Lemari">Lemari</option>
             <option  value="Ranjang">Ranjang</option>
             <option  value="Backdrop TV">Backdrop TV</option>
             <option  value="Meja">Meja</option>
             <option  value="Rak">Rak</option>
-            <option  value="Sofa">Sofa</option>
             <option  value="Lainnya">Lainnya</option>
           </select>
         </div>
 
         <div class="flex flex-start mb-6">
-          <h3 class="text-2xl">Referensi Desain Furnitur</h3>
+          <h3 class="text-2xl">Referensi Desain Furniture</h3>
         </div>
 
         <div class="flex flex-col mb-4">
@@ -194,7 +193,7 @@
           <label for="description" class="text-sm mb-2"
             >Keterangan Lain</label
           >
-         <textarea 
+         <textarea
          class="border-gray-200 border rounded-lg px-4 py-2 bg-white text-sm focus:border-blue-200 focus:outline-none"
          required
          name="description"

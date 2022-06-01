@@ -7,6 +7,8 @@ use App\Models\TransactionItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
+use Spatie\Activitylog\Models\Activity;
+use Spatie\Activitylog\ActivityLogger;
 
 class MyTransactionController extends Controller
 {
@@ -79,6 +81,15 @@ class MyTransactionController extends Controller
                 ->rawColumns(['action'])
                 ->make();
         }
+
+        //event log
+        $myTransaction->subject = 'K';
+        $myTransaction->description = 'melihat transaksi';
+
+        activity($myTransaction->subject)
+            ->causedBy($myTransaction->user)
+            ->log($myTransaction->description);
+
         return view('pages.dashboard.transaction.show', [
             'transaction' => $myTransaction
         ]);

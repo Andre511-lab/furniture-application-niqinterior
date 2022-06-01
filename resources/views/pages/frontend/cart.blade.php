@@ -63,7 +63,7 @@
                 <div class="px-4 flex-none">
                 <div class="" style="width: 90px; height: 90px">
                     <img
-                    src="{{ $item->product->galleries()->exists() ? Storage::url($item->product->galleries->first()->url) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' }}item->"
+                    src="{{ $item->product->galleries()->exists() ? Storage::url($item->product->galleries->first()->url) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' }}"
                     alt="chair-1"
                     class="object-cover rounded-xl w-full h-full"
                     />

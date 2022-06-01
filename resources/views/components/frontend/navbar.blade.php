@@ -31,11 +31,6 @@
                 >Custom</a
               >
             </li>
-            <li class="mx-3 py-6 md:py-0">
-              <a href="#" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"
-                >Rewards</a
-              >
-            </li>
             @auth
             <li class="mx-3 py-6 md:py-0">
                 <a href="{{ route('dashboard.index') }}" class="text-black {{ \Route::current()->getName() == 'index' ? 'md:text-white' : 'md:text-black' }} hover:underline"

@@ -168,13 +168,39 @@ class FrontendController extends Controller
     {
         //event log
         $request->subject = 'H';
-        $request->description = 'checkout';
+        $request->description = 'checkout sukses';
 
         activity($request->subject)
             ->causedBy($request->user)
             ->log($request->description);
 
         return view('pages.frontend.success');
+    }
+
+    public function pending(Request $request)
+    {
+        //event log
+        $request->subject = 'I';
+        $request->description = 'checkout pending';
+
+        activity($request->subject)
+            ->causedBy($request->user)
+            ->log($request->description);
+
+        return view('pages.frontend.pending');
+    }
+
+    public function failed(Request $request)
+    {
+        //event log
+        $request->subject = 'J';
+        $request->description = 'checkout gagal';
+
+        activity($request->subject)
+            ->causedBy($request->user)
+            ->log($request->description);
+
+        return view('pages.frontend.failed');
     }
 
     public function catalog(Request $request)
@@ -207,7 +233,7 @@ class FrontendController extends Controller
         $showcases = Showcase::all();
 
         //event log
-        $request->subject = 'I';
+        $request->subject = 'L';
         $request->description = 'melihat showcase';
 
         activity($request->subject)
@@ -236,7 +262,7 @@ class FrontendController extends Controller
         }
 
         //event log
-        $request->subject = 'J';
+        $request->subject = 'M';
         $request->description = 'memesan custom';
 
         activity($request->subject)

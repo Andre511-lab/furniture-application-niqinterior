@@ -27,7 +27,7 @@ class LogoutSuccessful
      */
     public function handle(Logout $event)
     {
-        $event->subject = 'K';
+        $event->subject = 'N';
         $event->description = 'logout';
 
         activity($event->subject)

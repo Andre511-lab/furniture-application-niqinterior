@@ -24,7 +24,7 @@
   <div class="mt-4 text-center">
     <h6 class="font-semibold text-2xl">Desain Inspirasi</h6>
     <p class="font-light text-lg" style="font-weight:300">Cari ide desain furniture di sini! Kami akan mewujudkannya untuk Anda! <br/>
-      *gambar pada halaman ini hanya sebagai referensi desain yang diambil dari Social Media
+      *gambar pada halaman ini hanya sebagai referensi desain yang diambil dari hasil yang sudah pernah dibuat
     </p>
   </div>
 
@@ -44,7 +44,7 @@
         <div class="px-4 relative card group w-6/12 md:w-3/12 item category{{ $showcase->categories_id }} " style="margin-bottom: 100px">
           <div
           class="rounded-xl overflow-hidden card-shadow relative"
-          style="height: 200px"
+          style="height: 230px"
           >
           <img
           src="{{ $showcase->exists() ? Storage::url($showcase->url) : 'data:image/gif;base64,R0lGODlhAQABAIAAAMLCwgAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' }}"

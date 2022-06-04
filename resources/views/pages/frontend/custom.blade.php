@@ -23,8 +23,7 @@
 <section class="container mx-auto">
   <div class="my-8 text-center">
     <h6 class="font-semibold text-2xl">Pemesanan Layanan</h6>
-    <p class="font-light text-lg" style="font-weight:300">Custom furniture seperti kitchen set, lemari, wardrobe, tempat tidur,
-      sofa, meja makan, meja belajar, meja rias, <br/> kursi, rak buku, rak bawah tangga, hingga backdrop TV, sesuai dengan keinginan
+    <p class="font-light text-lg" style="font-weight:300">Custom furniture seperti kitchen set, lemari, wardrobe, tempat tidur, meja makan, meja belajar, meja rias, <br/> kursi, rak buku, rak bawah tangga, hingga backdrop TV, sesuai dengan keinginan
       anda.
     </p>
   </div>

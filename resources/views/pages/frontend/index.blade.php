@@ -11,7 +11,7 @@
           </h1>
           <h2 class="px-8 text-base md:px-0 md:text-lg my-6 tracking-wide">
             Kami menyediakan furniture berkelas yang
-            <br class="hidden lg:block" />membuat ruangan terasa homey
+            <br class="hidden lg:block" />membuat ruangan anda terasa nyaman
           </h2>
           <div>
             <a
@@ -149,7 +149,7 @@
         <div class="container mx-auto mb-4">
           <div class="flex justify-center text-center mb-4">
             <h3 class="text-2xl capitalize font-semibold">
-              Just Arrived <br class="" />this summer for you
+              Just Arrived <br class="" />our newest furniture for you
             </h3>
           </div>
         </div>

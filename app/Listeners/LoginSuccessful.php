@@ -27,13 +27,6 @@ class LoginSuccessful
      */
     public function handle(Login $event)
     {
-        $event->subject = 'Z';
-        $event->description = 'login';
 
-        /*activity($event->subject)
-            ->causedBy($event->user)
-            ->log($event->description);*/
-
-        insertEventActivity($event);
     }
 }

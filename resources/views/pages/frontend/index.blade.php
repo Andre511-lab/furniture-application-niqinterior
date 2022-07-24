@@ -59,7 +59,7 @@
                     browse the room <br class="" />that we designed for you
                 </h3>
             </div>
-            {{--<div class="grid grid-rows-2 grid-cols-9 gap-4">
+           <div class="grid grid-rows-2 grid-cols-9 gap-4">
                 <div
                         class="relative col-span-9 row-span-1 md:col-span-4 card"
                         style="height: 180px"
@@ -140,7 +140,7 @@
                         <!-- fake children -->
                     </a>
                 </div>
-            </div>--}}
+            </div>
         </div>
     </section>
     <!-- END: BROWSE THE ROOM -->

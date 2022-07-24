@@ -28,7 +28,7 @@ class FrontendController extends Controller
         $categories = ProductCategory::with(['product'])->get();
 
         //event log code
-        $request->subject = 'B';
+        $request->subject = 'A';
         $request->description = 'home';
 
         /*activity($request->subject)
@@ -46,7 +46,7 @@ class FrontendController extends Controller
         $recommendations = Product::with(['galleries'])->inRandomOrder()->limit(4)->get();
 
         //event log
-        $request->subject = 'D';
+        $request->subject = 'C';
         $request->description = 'melihat barang';
 
         /*activity($request->subject)
@@ -65,7 +65,7 @@ class FrontendController extends Controller
         ]);
 
         //event log
-        $request->subject = 'E';
+        $request->subject = 'D';
         $request->description = 'memasukan barang ke keranjang';
 
         /*activity($request->subject)
@@ -83,7 +83,7 @@ class FrontendController extends Controller
         $item->delete();
 
         //event log
-        $request->subject = 'G';
+        $request->subject = 'F';
         $request->description = 'menghapus barang dalam keranjang';
 
         /*activity($request->subject)
@@ -99,7 +99,7 @@ class FrontendController extends Controller
         $carts = Cart::with(['product.galleries'])->where('users_id', Auth::user()->id)->get();
 
         //event log
-        $request->subject = 'F';
+        $request->subject = 'E';
         $request->description = 'melihat keranjang';
 
         /*activity($request->subject)
@@ -174,7 +174,7 @@ class FrontendController extends Controller
     public function success(Request $request)
     {
         //event log
-        $request->subject = 'H';
+        $request->subject = 'G';
         $request->description = 'checkout sukses';
 
         /*activity($request->subject)
@@ -188,7 +188,7 @@ class FrontendController extends Controller
     public function pending(Request $request)
     {
         //event log
-        $request->subject = 'I';
+        $request->subject = 'H';
         $request->description = 'checkout pending';
 
         /*activity($request->subject)
@@ -202,7 +202,7 @@ class FrontendController extends Controller
     public function failed(Request $request)
     {
         //event log
-        $request->subject = 'J';
+        $request->subject = 'I';
         $request->description = 'checkout gagal';
 
         /*activity($request->subject)
@@ -227,7 +227,7 @@ class FrontendController extends Controller
         }
 
         //event log
-        $request->subject = 'C';
+        $request->subject = 'B';
         $request->description = 'catalog';
 
         /*activity($request->subject)

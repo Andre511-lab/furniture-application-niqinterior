@@ -5,6 +5,7 @@ namespace App\Listeners;
 use Illuminate\Auth\Events\Logout;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\Session;
 use Spatie\Activitylog\Models\Activity;
 
 class LogoutSuccessful
@@ -30,8 +31,10 @@ class LogoutSuccessful
         $event->subject = 'N';
         $event->description = 'logout';
 
-        activity($event->subject)
+        /*activity($event->subject)
             ->causedBy($event->user)
-            ->log($event->description);
+            ->log($event->description);*/
+
+        insertEventActivity($event);
     }
 }

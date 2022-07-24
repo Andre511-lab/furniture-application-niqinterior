@@ -86,9 +86,10 @@ class MyTransactionController extends Controller
         $myTransaction->subject = 'K';
         $myTransaction->description = 'melihat transaksi';
 
-        activity($myTransaction->subject)
+        /*activity($myTransaction->subject)
             ->causedBy($myTransaction->user)
-            ->log($myTransaction->description);
+            ->log($myTransaction->description);*/
+        insertTransActivity($myTransaction);
 
         return view('pages.dashboard.transaction.show', [
             'transaction' => $myTransaction

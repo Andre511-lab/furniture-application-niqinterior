@@ -5,9 +5,7 @@ namespace App\Listeners;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Support\Facades\Session;
 use Spatie\Activitylog\Models\Activity;
-
 
 class LoginSuccessful
 {
@@ -32,8 +30,10 @@ class LoginSuccessful
         $event->subject = 'A';
         $event->description = 'login';
 
-        activity($event->subject)
+        /*activity($event->subject)
             ->causedBy($event->user)
-            ->log($event->description);
+            ->log($event->description);*/
+
+        insertEventActivity($event);
     }
 }

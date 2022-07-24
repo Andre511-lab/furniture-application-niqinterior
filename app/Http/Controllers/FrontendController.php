@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Midtrans\Config;
 use Midtrans\Snap;
+use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\ActivityLogger;
 
@@ -30,9 +31,11 @@ class FrontendController extends Controller
         $request->subject = 'B';
         $request->description = 'home';
 
-        activity($request->subject)
+        /*activity($request->subject)
             ->causedBy($request->user)
-            ->log($request->description);
+            ->log($request->description);*/
+
+        insertActivity($request);
 
         return view('pages.frontend.index', compact('products', 'categories'));
     }
@@ -46,9 +49,10 @@ class FrontendController extends Controller
         $request->subject = 'D';
         $request->description = 'melihat barang';
 
-        activity($request->subject)
+        /*activity($request->subject)
             ->causedBy($request->user)
-            ->log($request->description);
+            ->log($request->description);*/
+        insertActivity($request);
 
         return view('pages.frontend.details', compact('product', 'recommendations'));
     }
@@ -64,9 +68,10 @@ class FrontendController extends Controller
         $request->subject = 'E';
         $request->description = 'memasukan barang ke keranjang';
 
-        activity($request->subject)
+        /*activity($request->subject)
             ->causedBy($request->user)
-            ->log($request->description);
+            ->log($request->description);*/
+        insertActivity($request);
 
         return redirect('cart');
     }
@@ -81,9 +86,10 @@ class FrontendController extends Controller
         $request->subject = 'G';
         $request->description = 'menghapus barang dalam keranjang';
 
-        activity($request->subject)
+        /*activity($request->subject)
             ->causedBy($request->user)
-            ->log($request->description);
+            ->log($request->description);*/
+        insertActivity($request);
 
         return redirect('cart');
     }
@@ -96,9 +102,10 @@ class FrontendController extends Controller
         $request->subject = 'F';
         $request->description = 'melihat keranjang';
 
-        activity($request->subject)
+        /*activity($request->subject)
             ->causedBy($request->user)
-            ->log($request->description);
+            ->log($request->description);*/
+        insertActivity($request);
 
         return view('pages.frontend.cart', compact('carts'));
     }
@@ -170,9 +177,10 @@ class FrontendController extends Controller
         $request->subject = 'H';
         $request->description = 'checkout sukses';
 
-        activity($request->subject)
+        /*activity($request->subject)
             ->causedBy($request->user)
-            ->log($request->description);
+            ->log($request->description);*/
+        insertActivity($request);
 
         return view('pages.frontend.success');
     }
@@ -183,9 +191,10 @@ class FrontendController extends Controller
         $request->subject = 'I';
         $request->description = 'checkout pending';
 
-        activity($request->subject)
+        /*activity($request->subject)
             ->causedBy($request->user)
-            ->log($request->description);
+            ->log($request->description);*/
+        insertActivity($request);
 
         return view('pages.frontend.pending');
     }
@@ -196,9 +205,10 @@ class FrontendController extends Controller
         $request->subject = 'J';
         $request->description = 'checkout gagal';
 
-        activity($request->subject)
+        /*activity($request->subject)
             ->causedBy($request->user)
-            ->log($request->description);
+            ->log($request->description);*/
+        insertActivity($request);
 
         return view('pages.frontend.failed');
     }
@@ -220,9 +230,10 @@ class FrontendController extends Controller
         $request->subject = 'C';
         $request->description = 'catalog';
 
-        activity($request->subject)
+        /*activity($request->subject)
             ->causedBy($request->user)
-            ->log($request->description);
+            ->log($request->description);*/
+        insertActivity($request);
 
         return view('pages.frontend.catalog', compact('categories', 'products', 'title'));
     }
@@ -236,9 +247,10 @@ class FrontendController extends Controller
         $request->subject = 'L';
         $request->description = 'melihat showcase';
 
-        activity($request->subject)
+        /*activity($request->subject)
             ->causedBy($request->user)
-            ->log($request->description);
+            ->log($request->description);*/
+        insertActivity($request);
 
         return view('pages.frontend.showcase', compact('categories', 'showcases'));
     }
@@ -265,9 +277,10 @@ class FrontendController extends Controller
         $request->subject = 'M';
         $request->description = 'memesan custom';
 
-        activity($request->subject)
+        /*activity($request->subject)
             ->causedBy($request->user)
-            ->log($request->description);
+            ->log($request->description);*/
+        insertActivity($request);
 
         return redirect()->route('custom')->with('success', "success");
     }
